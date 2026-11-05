@@ -42,13 +42,13 @@ h1{font-size:27px;line-height:1.2;margin:0 0 10px;font-weight:650;letter-spacing
 .kpi b{display:block;font-size:25px;font-weight:650;letter-spacing:-.015em;line-height:1.15}
 .kpi span{font-size:11.5px;color:var(--ink-3)}
 .rows{display:flex;flex-direction:column;gap:7px}
-.r{display:grid;grid-template-columns:150px 1fr 1fr;gap:10px;align-items:center;font-size:12.5px}
+.r{display:grid;grid-template-columns:148px 1fr 58px 1fr 58px;gap:9px;align-items:center;font-size:12.5px}
 .r .nm{color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .r .nm i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:-1px}
 .tk{height:22px;background:var(--slab);border-radius:4px;overflow:hidden;position:relative;display:block}
 .fl{display:block;height:100%;border-radius:4px;min-width:2px}
-.tk .lab{position:absolute;right:6px;top:0;line-height:22px;font-size:11.5px;color:var(--ink-2)}
-.hd{display:grid;grid-template-columns:150px 1fr 1fr;gap:10px;font-size:10.5px;letter-spacing:.07em;
+.num{text-align:right;color:var(--ink-2);font-size:11.5px}
+.hd{display:grid;grid-template-columns:148px 1fr 58px 1fr 58px;gap:9px;font-size:10.5px;letter-spacing:.07em;
   text-transform:uppercase;color:var(--ink-3);margin-bottom:7px}
 figure{margin:0}
 svg{width:100%;height:auto;display:block;overflow:visible}
@@ -76,7 +76,7 @@ footer a{color:var(--ink-2)}
 <section class="panel">
   <p class="ptitle">Today&rsquo;s mix, counted two ways</p>
   <p class="pnote">People and traffic disagree, sometimes violently &mdash; a handful of automated accounts can dominate message share while barely registering as users. Both bars are shown because either alone misleads.</p>
-  <div class="hd"><span></span><span>Active accounts</span><span>Messages</span></div>
+  <div class="hd"><span></span><span>Active accounts</span><span></span><span>Messages</span><span></span></div>
   <div class="rows" id="rows"></div>
 </section>
 
@@ -115,6 +115,9 @@ const NAMES={'9152':'Farcaster (official)','self':'self-signed (Quilcast etc)','
   '912253':'npcnexus','other':'other apps','unresolved':'unresolved'};
 const PAL=['var(--c1)','var(--c2)','var(--c3)','var(--c4)','var(--c5)'];
 const nm=c=>NAMES[String(c)]||('app '+c);
+const SHORT={'9152':'Farcaster','self':'self-signed','16823':'Firefly','6131':'Neynar',
+  '1351215':'vibeshift','3356928':'Terminus','912253':'npcnexus','other':'other'};
+const shortnm=c=>SHORT[String(c)]||('app '+c);
 const n=x=>(x==null?'—':x.toLocaleString('en-US'));
 const msgs=c=>Object.values(c.messages_by_action||c.m||{}).reduce((a,b)=>a+b,0);
 
@@ -145,8 +148,8 @@ const msgs=c=>Object.values(c.messages_by_action||c.m||{}).reduce((a,b)=>a+b,0);
   document.getElementById('rows').innerHTML = bc.filter(x=>x.active_fids>0||msgs(x)>0).slice(0,9).map(x=>{
     const f=x.active_fids, m=msgs(x), col=colour[String(x.client)]||'var(--ink-3)';
     return `<div class="r"><span class="nm"><i style="background:${col}"></i>${nm(x.client)}</span>`+
-      `<span class="tk"><span class="fl" style="width:${100*f/maxF}%;background:${col}"></span><span class="lab">${n(f)}</span></span>`+
-      `<span class="tk"><span class="fl" style="width:${100*m/maxM}%;background:${col};opacity:.6"></span><span class="lab">${n(m)}</span></span></div>`;
+      `<span class="tk"><span class="fl" style="width:${100*f/maxF}%;background:${col}"></span></span><span class="num">${n(f)}</span>`+
+      `<span class="tk"><span class="fl" style="width:${100*m/maxM}%;background:${col};opacity:.6"></span></span><span class="num">${n(m)}</span></div>`;
   }).join('');
 
   // exclusive-use bar
@@ -159,7 +162,7 @@ const msgs=c=>Object.values(c.messages_by_action||c.m||{}).reduce((a,b)=>a+b,0);
       const w=W*s.exclusive_fids/tot, col=colour[String(s.client)]||'var(--ink-3)';
       g+=`<rect x="${x0.toFixed(1)}" y="${P.t}" width="${Math.max(0,w-2).toFixed(1)}" height="46" rx="3" fill="${col}"/>`;
       if(w>118){
-        g+=`<text x="${(x0+10).toFixed(1)}" y="${P.t+20}" font-size="12" fill="#fff" font-weight="620">${nm(s.client)}</text>`
+        g+=`<text x="${(x0+10).toFixed(1)}" y="${P.t+20}" font-size="12" fill="#fff" font-weight="620">${shortnm(s.client)}</text>`
          + `<text x="${(x0+10).toFixed(1)}" y="${P.t+37}" font-size="11.5" fill="#fff" opacity=".9">${n(s.exclusive_fids)} · ${(100*s.exclusive_fids/tot).toFixed(1)}%</text>`;
       }
       x0+=w;
