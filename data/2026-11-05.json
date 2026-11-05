@@ -1,0 +1,1680 @@
+{
+ "date": "2026-11-05",
+ "day": {
+  "casts": {
+   "fip2_ratio": 0.3289508282934525,
+   "top_level_with_parent_url": 1251,
+   "top_level_without_parent_url": 3803,
+   "total": 9090,
+   "unique_authors": 2927,
+   "unique_authors_7d_avg": 2549,
+   "unique_parent_hashes_estimated": 2735
+  },
+  "clients": {
+   "action_splits": {
+    "multi_client_fids": 104,
+    "split_fids": 93,
+    "top_patterns": [
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like"
+        ],
+        "client": "9152"
+       }
+      ],
+      "fids": 3
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast"
+        ],
+        "client": "9152"
+       },
+       {
+        "actions": [
+         "link"
+        ],
+        "client": "912253"
+       }
+      ],
+      "fids": 3
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "like"
+        ],
+        "client": "9152"
+       },
+       {
+        "actions": [
+         "like"
+        ],
+        "client": "16823"
+       }
+      ],
+      "fids": 3
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like",
+         "recast",
+         "delete"
+        ],
+        "client": "9152"
+       },
+       {
+        "actions": [
+         "cast"
+        ],
+        "client": "912253"
+       }
+      ],
+      "fids": 3
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "cast"
+        ],
+        "client": "9152"
+       }
+      ],
+      "fids": 2
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "like"
+        ],
+        "client": "9152"
+       }
+      ],
+      "fids": 2
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "like"
+        ],
+        "client": "9152"
+       }
+      ],
+      "fids": 2
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast",
+         "like"
+        ],
+        "client": "9152"
+       },
+       {
+        "actions": [
+         "cast",
+         "link"
+        ],
+        "client": "912253"
+       }
+      ],
+      "fids": 2
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like",
+         "recast"
+        ],
+        "client": "9152"
+       },
+       {
+        "actions": [
+         "like"
+        ],
+        "client": "16823"
+       }
+      ],
+      "fids": 2
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like",
+         "recast"
+        ],
+        "client": "9152"
+       },
+       {
+        "actions": [
+         "cast"
+        ],
+        "client": "912253"
+       }
+      ],
+      "fids": 2
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like",
+         "recast"
+        ],
+        "client": "9152"
+       },
+       {
+        "actions": [
+         "cast",
+         "link"
+        ],
+        "client": "912253"
+       }
+      ],
+      "fids": 2
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like",
+         "recast",
+         "link"
+        ],
+        "client": "9152"
+       },
+       {
+        "actions": [
+         "reply",
+         "like"
+        ],
+        "client": "1351215"
+       }
+      ],
+      "fids": 2
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "reply"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like",
+         "recast",
+         "delete"
+        ],
+        "client": "1351215"
+       }
+      ],
+      "fids": 1
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "like"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "like"
+        ],
+        "client": "9152"
+       }
+      ],
+      "fids": 1
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "like"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "like"
+        ],
+        "client": "9152"
+       },
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like",
+         "recast"
+        ],
+        "client": "16823"
+       },
+       {
+        "actions": [
+         "reply",
+         "like"
+        ],
+        "client": "3356928"
+       }
+      ],
+      "fids": 1
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "like"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "cast",
+         "like"
+        ],
+        "client": "9152"
+       }
+      ],
+      "fids": 1
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "like"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like",
+         "recast",
+         "link"
+        ],
+        "client": "9152"
+       }
+      ],
+      "fids": 1
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "like"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "cast",
+         "like"
+        ],
+        "client": "6131"
+       },
+       {
+        "actions": [
+         "like"
+        ],
+        "client": "3356653"
+       }
+      ],
+      "fids": 1
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast",
+         "like"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "like"
+        ],
+        "client": "16823"
+       },
+       {
+        "actions": [
+         "cast",
+         "like"
+        ],
+        "client": "3131082"
+       }
+      ],
+      "fids": 1
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "reply",
+         "like"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "cast",
+         "like"
+        ],
+        "client": "9152"
+       }
+      ],
+      "fids": 1
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "reply",
+         "like"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like",
+         "recast",
+         "link"
+        ],
+        "client": "9152"
+       }
+      ],
+      "fids": 1
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "cast",
+         "like"
+        ],
+        "client": "9152"
+       }
+      ],
+      "fids": 1
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "cast"
+        ],
+        "client": "16823"
+       },
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like",
+         "recast",
+         "link",
+         "delete"
+        ],
+        "client": "1351215"
+       }
+      ],
+      "fids": 1
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "reply",
+         "like"
+        ],
+        "client": "16823"
+       }
+      ],
+      "fids": 1
+     },
+     {
+      "clients": [
+       {
+        "actions": [
+         "cast",
+         "reply",
+         "like"
+        ],
+        "client": "self"
+       },
+       {
+        "actions": [
+         "reply",
+         "like"
+        ],
+        "client": "16823"
+       },
+       {
+        "actions": [
+         "like"
+        ],
+        "client": "1351215"
+       }
+      ],
+      "fids": 1
+     }
+    ]
+   },
+   "active_fids": 3510,
+   "by_client": [
+    {
+     "active_fids": 537,
+     "client": "self",
+     "exclusive_fids": 490,
+     "fids_by_action": {
+      "cast": 496,
+      "delete": 22,
+      "like": 94,
+      "link": 51,
+      "profile": 2,
+      "recast": 69,
+      "reply": 98,
+      "verification": 1
+     },
+     "messages_by_action": {
+      "cast": 1026,
+      "delete": 732,
+      "like": 1530,
+      "link": 68,
+      "profile": 6,
+      "recast": 137,
+      "reply": 1227,
+      "verification": 1
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 2570,
+     "client": "9152",
+     "exclusive_fids": 2481,
+     "fids_by_action": {
+      "cast": 1867,
+      "delete": 197,
+      "like": 1061,
+      "link": 223,
+      "profile": 693,
+      "recast": 323,
+      "reply": 487,
+      "verification": 549
+     },
+     "messages_by_action": {
+      "cast": 3180,
+      "delete": 1068,
+      "like": 7986,
+      "link": 1345,
+      "profile": 2991,
+      "recast": 995,
+      "reply": 2368,
+      "verification": 1244
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 320,
+     "client": "1159728",
+     "exclusive_fids": 320,
+     "fids_by_action": {
+      "cast": 320,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 320,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 61,
+     "client": "6131",
+     "exclusive_fids": 57,
+     "fids_by_action": {
+      "cast": 54,
+      "delete": 0,
+      "like": 6,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 12,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 401,
+      "delete": 0,
+      "like": 112,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 290,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 50,
+     "client": "16823",
+     "exclusive_fids": 21,
+     "fids_by_action": {
+      "cast": 29,
+      "delete": 4,
+      "like": 27,
+      "link": 4,
+      "profile": 0,
+      "recast": 5,
+      "reply": 18,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 50,
+      "delete": 4,
+      "like": 217,
+      "link": 5,
+      "profile": 0,
+      "recast": 25,
+      "reply": 55,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 34,
+     "client": "912253",
+     "exclusive_fids": 2,
+     "fids_by_action": {
+      "cast": 20,
+      "delete": 2,
+      "like": 8,
+      "link": 22,
+      "profile": 0,
+      "recast": 3,
+      "reply": 5,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 28,
+      "delete": 3,
+      "like": 37,
+      "link": 42,
+      "profile": 0,
+      "recast": 8,
+      "reply": 18,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 19,
+     "client": "256858",
+     "exclusive_fids": 17,
+     "fids_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 19,
+      "link": 19,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 25,
+      "link": 61,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 11,
+     "client": "3356928",
+     "exclusive_fids": 5,
+     "fids_by_action": {
+      "cast": 7,
+      "delete": 2,
+      "like": 11,
+      "link": 3,
+      "profile": 0,
+      "recast": 0,
+      "reply": 6,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 11,
+      "delete": 2,
+      "like": 79,
+      "link": 4,
+      "profile": 0,
+      "recast": 0,
+      "reply": 27,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 10,
+     "client": "1351215",
+     "exclusive_fids": 0,
+     "fids_by_action": {
+      "cast": 3,
+      "delete": 2,
+      "like": 9,
+      "link": 2,
+      "profile": 0,
+      "recast": 5,
+      "reply": 8,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 5,
+      "delete": 2,
+      "like": 181,
+      "link": 2,
+      "profile": 0,
+      "recast": 16,
+      "reply": 47,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 0,
+     "client": "553094",
+     "exclusive_fids": 0,
+     "fids_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 2,
+     "client": "955569",
+     "exclusive_fids": 2,
+     "fids_by_action": {
+      "cast": 2,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 6,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 3,
+     "client": "3131082",
+     "exclusive_fids": 1,
+     "fids_by_action": {
+      "cast": 3,
+      "delete": 1,
+      "like": 3,
+      "link": 0,
+      "profile": 0,
+      "recast": 1,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 3,
+      "delete": 1,
+      "like": 7,
+      "link": 0,
+      "profile": 0,
+      "recast": 2,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 1,
+     "client": "1398997",
+     "exclusive_fids": 1,
+     "fids_by_action": {
+      "cast": 1,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 4,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 1,
+     "client": "3342181",
+     "exclusive_fids": 1,
+     "fids_by_action": {
+      "cast": 1,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 4,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 1,
+     "client": "3342616",
+     "exclusive_fids": 1,
+     "fids_by_action": {
+      "cast": 1,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 1,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 1,
+     "client": "3353694",
+     "exclusive_fids": 1,
+     "fids_by_action": {
+      "cast": 1,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 2,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 1,
+     "client": "3355363",
+     "exclusive_fids": 1,
+     "fids_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 1,
+      "link": 1,
+      "profile": 0,
+      "recast": 1,
+      "reply": 1,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 8,
+      "link": 1,
+      "profile": 0,
+      "recast": 4,
+      "reply": 2,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 1,
+     "client": "3355543",
+     "exclusive_fids": 0,
+     "fids_by_action": {
+      "cast": 1,
+      "delete": 0,
+      "like": 1,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 1,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 1,
+      "delete": 0,
+      "like": 1,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 1,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 1,
+     "client": "3356329",
+     "exclusive_fids": 0,
+     "fids_by_action": {
+      "cast": 1,
+      "delete": 1,
+      "like": 1,
+      "link": 0,
+      "profile": 0,
+      "recast": 1,
+      "reply": 1,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 2,
+      "delete": 1,
+      "like": 4,
+      "link": 0,
+      "profile": 0,
+      "recast": 3,
+      "reply": 1,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 1,
+     "client": "3356396",
+     "exclusive_fids": 1,
+     "fids_by_action": {
+      "cast": 1,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 5,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 1,
+     "client": "3357084",
+     "exclusive_fids": 1,
+     "fids_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 1,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 2,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 1,
+     "client": "3357424",
+     "exclusive_fids": 1,
+     "fids_by_action": {
+      "cast": 1,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 4,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 1,
+     "client": "876470",
+     "exclusive_fids": 1,
+     "fids_by_action": {
+      "cast": 1,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 1,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 0,
+     "client": "1075183",
+     "exclusive_fids": 0,
+     "fids_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 1,
+     "client": "3335546",
+     "exclusive_fids": 1,
+     "fids_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 1,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 1,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 0,
+     "client": "3354786",
+     "exclusive_fids": 0,
+     "fids_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 0,
+     "client": "3355280",
+     "exclusive_fids": 0,
+     "fids_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 1,
+     "client": "3356653",
+     "exclusive_fids": 0,
+     "fids_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 1,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 1,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 0,
+     "client": "3356682",
+     "exclusive_fids": 0,
+     "fids_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 0,
+     "client": "other",
+     "exclusive_fids": 0,
+     "fids_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    },
+    {
+     "active_fids": 0,
+     "client": "unresolved",
+     "exclusive_fids": 0,
+     "fids_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "messages_by_action": {
+      "cast": 0,
+      "delete": 0,
+      "like": 0,
+      "link": 0,
+      "profile": 0,
+      "recast": 0,
+      "reply": 0,
+      "verification": 0
+     },
+     "retention": {
+      "d20": null,
+      "d30": null,
+      "d7": null
+     }
+    }
+   ],
+   "clients_per_fid": {
+    "four_or_more": 2,
+    "one": 3406,
+    "three": 12,
+    "two": 90
+   },
+   "combinations": [
+    {
+     "clients": [
+      "9152",
+      "912253"
+     ],
+     "fids": 30
+    },
+    {
+     "clients": [
+      "self",
+      "9152"
+     ],
+     "fids": 26
+    },
+    {
+     "clients": [
+      "9152",
+      "16823"
+     ],
+     "fids": 14
+    },
+    {
+     "clients": [
+      "9152",
+      "1351215"
+     ],
+     "fids": 5
+    },
+    {
+     "clients": [
+      "self",
+      "9152",
+      "16823"
+     ],
+     "fids": 4
+    },
+    {
+     "clients": [
+      "self",
+      "16823"
+     ],
+     "fids": 4
+    },
+    {
+     "clients": [
+      "self",
+      "3356928"
+     ],
+     "fids": 4
+    },
+    {
+     "clients": [
+      "9152",
+      "6131"
+     ],
+     "fids": 3
+    },
+    {
+     "clients": [
+      "self",
+      "16823",
+      "1351215"
+     ],
+     "fids": 2
+    },
+    {
+     "clients": [
+      "self",
+      "16823",
+      "3131082"
+     ],
+     "fids": 2
+    },
+    {
+     "clients": [
+      "self",
+      "9152",
+      "16823",
+      "3356928"
+     ],
+     "fids": 1
+    },
+    {
+     "clients": [
+      "self",
+      "9152",
+      "16823",
+      "1351215"
+     ],
+     "fids": 1
+    },
+    {
+     "clients": [
+      "self",
+      "9152",
+      "912253"
+     ],
+     "fids": 1
+    },
+    {
+     "clients": [
+      "self",
+      "6131",
+      "3356653"
+     ],
+     "fids": 1
+    },
+    {
+     "clients": [
+      "self",
+      "1351215"
+     ],
+     "fids": 1
+    },
+    {
+     "clients": [
+      "9152",
+      "912253",
+      "256858"
+     ],
+     "fids": 1
+    },
+    {
+     "clients": [
+      "9152",
+      "256858"
+     ],
+     "fids": 1
+    },
+    {
+     "clients": [
+      "9152",
+      "3356928"
+     ],
+     "fids": 1
+    },
+    {
+     "clients": [
+      "9152",
+      "3355543"
+     ],
+     "fids": 1
+    },
+    {
+     "clients": [
+      "16823",
+      "1351215",
+      "3356329"
+     ],
+     "fids": 1
+    }
+   ],
+   "partial": false
+  },
+  "date": "2026-11-05",
+  "links": {
+   "total": 1528,
+   "unique_actors": 316,
+   "unique_target_fids": 969
+  },
+  "reactions": {
+   "total": 11381,
+   "unique_actors": 1215,
+   "unique_target_fids": 1142,
+   "unique_target_hashes_estimated": 4647
+  },
+  "reconstructed": false,
+  "retention": {
+   "d20": 1021,
+   "d30": 1055,
+   "d7": 1606
+  }
+ },
+ "fetched_at": "2026-11-05T20:04:36+00:00",
+ "notes": {
+  "clients": {
+   "actions": "cast = top-level cast, reply = cast with a parent cast, like, recast, link = any LinkAdd, delete = cast/reaction/link remove, profile = UserDataAdd, verification = verification add or remove",
+   "active_fids": "fids with at least one of those actions; unlike casts.unique_authors, not limited to casts",
+   "client": "the fid that requested the signer a message was signed with; \"self\" when that is the author's own fid; app fids outside the top N by fid-days in this range fold into \"other\"; \"unresolved\" when the signer was not found",
+   "partial": "true on tracked_from until a retained-block repair recovers coverage from the start of that UTC day",
+   "retention": "per client, against exactly N days earlier: retained = used the client both days; retained_exclusive = used only that client both days; gained_from_other_clients = uses it now but N days earlier was active only elsewhere; lost_to_other_clients = the reverse. Windows reaching before tracked_from are null",
+   "top": 30,
+   "tracked_from": "2026-11-04"
+  },
+  "estimate_method": "HyperLogLog p=14, ~0.8% standard error",
+  "estimated_fields": [
+   "casts.unique_parent_hashes_estimated",
+   "reactions.unique_target_hashes_estimated"
+  ],
+  "retention": "dN = fids that cast on this day AND also cast exactly N days earlier (cast activity only)"
+ },
+ "source": "https://haatz.quilibrium.com/v2/farcaster/stats/daily?from=2026-10-31&to=2026-11-05&clients=30",
+ "tracked_from": "2026-11-04"
+}

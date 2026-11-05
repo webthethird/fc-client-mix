@@ -1,0 +1,34 @@
+name: archive client mix
+
+# Every six hours rather than daily: the endpoint marks a day `partial` until a
+# retained-block repair completes, and the node has had outages, so a single
+# daily attempt can miss a day permanently. Re-running is cheap and idempotent —
+# a complete day already stored is never rewritten.
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Fetch and store
+        run: python3 scripts/archive.py
+      - name: Commit any new days
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data)" ]; then
+            git add data
+            git commit -m "archive: $(git status --porcelain data | grep -c '^' ) day(s) through $(date -u +%F)"
+            git push
+          else
+            echo "nothing new"
+          fi
