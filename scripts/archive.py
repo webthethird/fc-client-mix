@@ -55,7 +55,25 @@ def main():
     print(f"wrote {len(wrote)}: {wrote}")
     if repaired: print(f"  (replaced partial copies for {repaired})")
     print(f"unchanged {len(skipped)}: {skipped}")
-    have = sorted(f[:-5] for f in os.listdir(OUT) if f.endswith(".json"))
+    have = sorted(f[:-5] for f in os.listdir(OUT)
+                  if f.endswith(".json") and f != "index.json")
+    # An index so a browser can discover the archive: GitHub's raw host serves
+    # these with CORS, but gives no directory listing.
+    summary = []
+    for date in have:
+        rec = json.load(open(os.path.join(OUT, f"{date}.json")))
+        c = rec["day"].get("clients", {})
+        summary.append({
+            "date": date,
+            "active_fids": c.get("active_fids"),
+            "partial": c.get("partial"),
+            "clients": len(c.get("by_client", [])),
+        })
+    with open(os.path.join(OUT, "index.json"), "w") as f:
+        json.dump({"days": summary,
+                   "tracked_from": notes.get("clients", {}).get("tracked_from"),
+                   "updated_at": datetime.datetime.now(datetime.timezone.utc)
+                                 .isoformat(timespec="seconds")}, f, indent=1)
     print(f"archive now holds {len(have)} days: {have[0]} .. {have[-1]}" if have else "archive empty")
     if not wrote and not skipped:
         print("WARNING: the response carried no client data at all", file=sys.stderr)

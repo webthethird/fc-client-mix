@@ -1,0 +1,18 @@
+{
+ "days": [
+  {
+   "date": "2026-11-04",
+   "active_fids": 3086,
+   "partial": false,
+   "clients": 31
+  },
+  {
+   "date": "2026-11-05",
+   "active_fids": 3510,
+   "partial": false,
+   "clients": 31
+  }
+ ],
+ "tracked_from": "2026-11-04",
+ "updated_at": "2026-11-05T20:11:39+00:00"
+}
