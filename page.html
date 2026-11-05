@@ -75,8 +75,8 @@ footer a{color:var(--ink-2)}
 
 <section class="panel">
   <p class="ptitle">Today&rsquo;s mix, counted two ways</p>
-  <p class="pnote">People and traffic disagree, sometimes violently &mdash; a handful of automated accounts can dominate message share while barely registering as users. Both bars are shown because either alone misleads.</p>
-  <div class="hd"><span></span><span>Active accounts</span><span></span><span>Messages</span><span></span></div>
+  <p class="pnote">People and traffic disagree, sometimes violently &mdash; a handful of automated accounts can dominate message share while barely registering as users. Both bars are shown because either alone misleads. <b>Deletions are excluded</b>: one account wiping its history is not client adoption, and on 4 November removals alone were a third of all traffic.</p>
+  <div class="hd"><span></span><span>Active accounts</span><span></span><span>Messages, excl. deletions</span><span></span></div>
   <div class="rows" id="rows"></div>
 </section>
 
@@ -94,13 +94,13 @@ footer a{color:var(--ink-2)}
 
 <details class="panel">
   <summary style="cursor:pointer;font-size:13.5px;font-weight:600">Every client, most recent day</summary>
-  <div class="scroll"><table id="tbl"><thead><tr><th>Client</th><th>Active</th><th>Only this</th><th>Casts</th><th>Replies</th><th>Likes</th><th>All msgs</th></tr></thead><tbody></tbody></table></div>
+  <div class="scroll"><table id="tbl"><thead><tr><th>Client</th><th>Active</th><th>Only this</th><th>Casts</th><th>Replies</th><th>Likes</th><th>Deletions</th><th>Msgs excl. del.</th></tr></thead><tbody></tbody></table></div>
 </details>
 
 <section class="panel">
   <p class="ptitle">Reading this honestly</p>
   <p class="note"><b>The series starts when tracking started</b>, not because anything happened that day. Nothing here shows a before-and-after for the October vote &mdash; the client dimension does not exist for earlier dates and does not backfill.</p>
-  <p class="note"><b>Single days swing hard.</b> Deletions were 12,805 one day and 1,813 the next. One automated account moves message share by tens of percent; it barely moves account share.</p>
+  <p class="note"><b>Deletions are excluded from the figures above.</b> They were 12,805 messages on 4 November and 1,813 the next day &mdash; a third of all traffic, then 6%. Counting them put Terminus at 15.4% of network traffic on one day, almost entirely from a few accounts erasing their own history. Excluding them also makes consecutive days agree. The raw counts are in the table.</p>
   <p class="note"><b>&ldquo;self&rdquo; is not one app.</b> It means the signing key was registered to the author&rsquo;s own account rather than to an app &mdash; the pattern Quilcast uses, among others. It is reliably <em>not</em> the official client, and not reliably any single alternative.</p>
   <p class="note" style="margin-bottom:0"><b>This measures one node&rsquo;s view.</b> Hypersnap and Snapchain currently share validators, so today that is the whole network. After the announced fork it will not be.</p>
 </section>
@@ -119,7 +119,14 @@ const SHORT={'9152':'Farcaster','self':'self-signed','16823':'Firefly','6131':'N
   '1351215':'vibeshift','3356928':'Terminus','912253':'npcnexus','other':'other'};
 const shortnm=c=>SHORT[String(c)]||('app '+c);
 const n=x=>(x==null?'—':x.toLocaleString('en-US'));
-const msgs=c=>Object.values(c.messages_by_action||c.m||{}).reduce((a,b)=>a+b,0);
+// Deletions are excluded from every headline figure. They are a third of all traffic on a
+// bad day and one account's history wipe can dominate a client's share: on 2026-11-04 they
+// put Terminus at 15.4% of traffic on 5,896 removals from a handful of accounts. Removing
+// them also makes consecutive days agree (25.3% vs 23.4%) where raw totals differed by nine
+// points. The raw counts stay visible in the table below.
+const acts=c=>(c.messages_by_action||c.m||{});
+const msgs=c=>Object.entries(acts(c)).reduce((a,[k,v])=>a+(k==='delete'?0:v),0);
+const dels=c=>acts(c).delete||0;
 
 (function(){
   const idx = ARCHIVE, ok = ARCHIVE.days.map(d=>({date:d.date, day:{clients:d}}));
@@ -209,7 +216,7 @@ const msgs=c=>Object.values(c.messages_by_action||c.m||{}).reduce((a,b)=>a+b,0);
   document.querySelector('#tbl tbody').innerHTML = bc.filter(x=>msgs(x)>0||x.active_fids>0)
     .map(x=>{const a=x.messages_by_action||{};
       return `<tr><td>${nm(x.client)}</td><td>${n(x.active_fids)}</td><td>${n(x.exclusive_fids)}</td>`+
-             `<td>${n(a.cast||0)}</td><td>${n(a.reply||0)}</td><td>${n(a.like||0)}</td><td>${n(msgs(x))}</td></tr>`;}).join('');
+             `<td>${n(a.cast||0)}</td><td>${n(a.reply||0)}</td><td>${n(a.like||0)}</td><td>${n(dels(x))}</td><td>${n(msgs(x))}</td></tr>`;}).join('');
 
   document.getElementById('foot').innerHTML =
     `Source: <code>haatz.quilibrium.com/v2/farcaster/stats/daily</code>, archived at `+
