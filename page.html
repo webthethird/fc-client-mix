@@ -74,8 +74,14 @@ footer a{color:var(--ink-2)}
 <div class="kpi" id="kpi"></div>
 
 <section class="panel">
-  <p class="ptitle">Today&rsquo;s mix, counted two ways</p>
-  <p class="pnote">People and traffic disagree, sometimes violently &mdash; a handful of automated accounts can dominate message share while barely registering as users. Both bars are shown because either alone misleads. <b>Deletions are excluded</b>: one account wiping its history is not client adoption, and on 4 November removals alone were a third of all traffic.</p>
+  <p class="ptitle">Official client versus everything else</p>
+  <p class="pnote">Share of messages, deletions excluded. This is the split that matters; the breakdown below says what is inside the right-hand bar, which is not all of it real client use.</p>
+  <figure><svg id="split" viewBox="0 0 860 120" role="img" aria-label="Share of messages sent from the official client versus all other clients."></svg></figure>
+</section>
+
+<section class="panel">
+  <p class="ptitle">What is inside &ldquo;everything else&rdquo;</p>
+  <p class="pnote">Accounts and messages disagree sharply, so both are shown. <b>@devato is a token bot</b>: 320 accounts posting exactly one cast each, which is 30% of non-official <em>accounts</em> but 5% of non-official <em>messages</em>. That is why the split above is anchored on messages &mdash; counting accounts would make a third of &ldquo;alternative client use&rdquo; one automation.</p>
   <div class="hd"><span></span><span>Active accounts</span><span></span><span>Messages, excl. deletions</span><span></span></div>
   <div class="rows" id="rows"></div>
 </section>
@@ -137,6 +143,7 @@ const dels=c=>acts(c).delete||0;
   const off = bc.find(x=>String(x.client)==='9152') || {active_fids:0,exclusive_fids:0,messages_by_action:{}};
   const castTot = bc.reduce((s,x)=>s+(x.messages_by_action.cast||0),0);
   const castOff = off.messages_by_action.cast||0;
+  const offMsg = msgs(off), altMsg = bc.reduce((s,x)=>s+msgs(x),0) - offMsg;
 
   // colour: the official client is the baseline, deliberately neutral; the
   // alternatives get the categorical ramp in fixed order of size
@@ -147,7 +154,7 @@ const dels=c=>acts(c).delete||0;
   document.getElementById('kpi').innerHTML = [
     [`${(100*(castTot-castOff)/castTot).toFixed(1)}%`,'of casts not from the official client'],
     [n(C.active_fids),'accounts active that day'],
-    [`${(100*(C.active_fids-off.exclusive_fids)/C.active_fids).toFixed(1)}%`,'used something other than the official client'],
+    [`${(100*(altMsg)/(altMsg+offMsg)).toFixed(1)}%`,'of messages from other clients (deletions excluded)'],
     [n(ok.length),ok.length===1?'day archived':'days archived'],
   ].map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join('');
 
@@ -158,6 +165,22 @@ const dels=c=>acts(c).delete||0;
       `<span class="tk"><span class="fl" style="width:${100*f/maxF}%;background:${col}"></span></span><span class="num">${n(f)}</span>`+
       `<span class="tk"><span class="fl" style="width:${100*m/maxM}%;background:${col};opacity:.6"></span></span><span class="num">${n(m)}</span></div>`;
   }).join('');
+
+  // the binary split, on messages
+  (function(){
+    const W=860,H=120,tot=offMsg+altMsg;
+    const w1=W*offMsg/tot;
+    let g=`<rect x="0" y="14" width="${(w1-2).toFixed(1)}" height="58" rx="4" fill="var(--official)"/>`
+        + `<rect x="${w1.toFixed(1)}" y="14" width="${(W-w1).toFixed(1)}" height="58" rx="4" fill="var(--c1)"/>`;
+    g+=`<text x="14" y="40" font-size="15" fill="#fff" font-weight="650">Official client</text>`
+     + `<text x="14" y="60" font-size="13" fill="#fff" opacity=".9">${(100*offMsg/tot).toFixed(1)}% · ${n(offMsg)} messages</text>`;
+    const rx=Math.min(W-14, w1+14);
+    g+=`<text x="${rx}" y="40" font-size="15" fill="#fff" font-weight="650">Everything else</text>`
+     + `<text x="${rx}" y="60" font-size="13" fill="#fff" opacity=".9">${(100*altMsg/tot).toFixed(1)}% · ${n(altMsg)}</text>`;
+    g+=`<text x="0" y="98" font-size="11.5" fill="var(--ink-3)">${n(C.active_fids)} accounts were active on ${last.date}; `
+     + `${n(off.exclusive_fids)} of them used only the official client</text>`;
+    document.getElementById('split').innerHTML=g;
+  })();
 
   // exclusive-use bar
   (function(){
