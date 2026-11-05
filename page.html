@@ -1,0 +1,219 @@
+<title>Which Farcaster clients people actually use</title>
+<style>
+:root{
+  color-scheme: light;
+  --bg:#f7f6f3; --panel:#ffffff; --slab:#f0eee9;
+  --ink:#161513; --ink-2:#55524c; --ink-3:#8b8780;
+  --rule:#e3dfd7; --grid:#edeae3;
+  --official:#6b7280;
+  --c1:#eb6834; --c2:#1baf7a; --c3:#eda100; --c4:#4a3aa7; --c5:#b05f7a;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  color-scheme: dark;
+  --bg:#191a1d; --panel:#1d1d20; --slab:#232327;
+  --ink:#f2f0ec; --ink-2:#a7a39c; --ink-3:#7b7770;
+  --rule:#2e2e33; --grid:#28282d;
+  --official:#8c93a1;
+  --c1:#d95926; --c2:#199e70; --c3:#c98500; --c4:#6f7fd6; --c5:#c96f8c;
+}}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#191a1d; --panel:#1d1d20; --slab:#232327;
+  --ink:#f2f0ec; --ink-2:#a7a39c; --ink-3:#7b7770;
+  --rule:#2e2e33; --grid:#28282d;
+  --official:#8c93a1;
+  --c1:#d95926; --c2:#199e70; --c3:#c98500; --c4:#6f7fd6; --c5:#c96f8c;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-variant-numeric:tabular-nums;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:36px 20px 72px;display:flex;flex-direction:column;gap:22px}
+.eyebrow{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin:0 0 10px}
+h1{font-size:27px;line-height:1.2;margin:0 0 10px;font-weight:650;letter-spacing:-.015em;text-wrap:balance}
+@media(min-width:680px){h1{font-size:33px}}
+.lede{margin:0;color:var(--ink-2);font-size:15px;max-width:62ch}
+.panel{background:var(--panel);border:1px solid var(--rule);border-radius:11px;padding:18px}
+.ptitle{margin:0 0 3px;font-size:15px;font-weight:620}
+.pnote{margin:0 0 14px;font-size:12.5px;color:var(--ink-3);max-width:74ch}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:11px;overflow:hidden}
+.kpi div{background:var(--panel);padding:14px 16px}
+.kpi b{display:block;font-size:25px;font-weight:650;letter-spacing:-.015em;line-height:1.15}
+.kpi span{font-size:11.5px;color:var(--ink-3)}
+.rows{display:flex;flex-direction:column;gap:7px}
+.r{display:grid;grid-template-columns:150px 1fr 1fr;gap:10px;align-items:center;font-size:12.5px}
+.r .nm{color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r .nm i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.tk{height:22px;background:var(--slab);border-radius:4px;overflow:hidden;position:relative;display:block}
+.fl{display:block;height:100%;border-radius:4px;min-width:2px}
+.tk .lab{position:absolute;right:6px;top:0;line-height:22px;font-size:11.5px;color:var(--ink-2)}
+.hd{display:grid;grid-template-columns:150px 1fr 1fr;gap:10px;font-size:10.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:7px}
+figure{margin:0}
+svg{width:100%;height:auto;display:block;overflow:visible}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{text-align:right;padding:7px 9px;border-bottom:1px solid var(--rule);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:650}
+.scroll{overflow-x:auto}
+.note{font-size:12.5px;color:var(--ink-2);border-left:3px solid var(--rule);padding:2px 0 2px 13px;margin:0 0 9px}
+.note b{color:var(--ink)}
+footer{font-size:11.5px;color:var(--ink-3);border-top:1px solid var(--rule);padding-top:13px}
+footer a{color:var(--ink-2)}
+.load{color:var(--ink-3);font-size:13px;padding:26px 0;text-align:center}
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">Farcaster &middot; daily client mix</p>
+  <h1>Which clients people actually post through</h1>
+  <p class="lede">Every cast carries the key that signed it, and every key records the app that registered it &mdash; so client use is measurable from the protocol itself. This is a snapshot of a public archive of the network&rsquo;s daily breakdown.</p>
+</header>
+
+<div class="kpi" id="kpi"></div>
+
+<section class="panel">
+  <p class="ptitle">Today&rsquo;s mix, counted two ways</p>
+  <p class="pnote">People and traffic disagree, sometimes violently &mdash; a handful of automated accounts can dominate message share while barely registering as users. Both bars are shown because either alone misleads.</p>
+  <div class="hd"><span></span><span>Active accounts</span><span>Messages</span></div>
+  <div class="rows" id="rows"></div>
+</section>
+
+<section class="panel">
+  <p class="ptitle">Accounts that used only one client</p>
+  <p class="pnote">Closest to &ldquo;which client do people use&rdquo;: it excludes anyone who touched several that day, so it does not double-count. This is the figure to quote, and the one most often confused with something else.</p>
+  <figure><svg id="excl" viewBox="0 0 860 150" role="img" aria-label="Accounts that used only one client on the most recent day."></svg></figure>
+</section>
+
+<section class="panel">
+  <p class="ptitle">Share of casts not sent from the official client</p>
+  <p class="pnote" id="seriesnote">One point per day since tracking began.</p>
+  <figure><svg id="series" viewBox="0 0 860 190" role="img" aria-label="Daily share of casts sent from clients other than the official one."></svg></figure>
+</section>
+
+<details class="panel">
+  <summary style="cursor:pointer;font-size:13.5px;font-weight:600">Every client, most recent day</summary>
+  <div class="scroll"><table id="tbl"><thead><tr><th>Client</th><th>Active</th><th>Only this</th><th>Casts</th><th>Replies</th><th>Likes</th><th>All msgs</th></tr></thead><tbody></tbody></table></div>
+</details>
+
+<section class="panel">
+  <p class="ptitle">Reading this honestly</p>
+  <p class="note"><b>The series starts when tracking started</b>, not because anything happened that day. Nothing here shows a before-and-after for the October vote &mdash; the client dimension does not exist for earlier dates and does not backfill.</p>
+  <p class="note"><b>Single days swing hard.</b> Deletions were 12,805 one day and 1,813 the next. One automated account moves message share by tens of percent; it barely moves account share.</p>
+  <p class="note"><b>&ldquo;self&rdquo; is not one app.</b> It means the signing key was registered to the author&rsquo;s own account rather than to an app &mdash; the pattern Quilcast uses, among others. It is reliably <em>not</em> the official client, and not reliably any single alternative.</p>
+  <p class="note" style="margin-bottom:0"><b>This measures one node&rsquo;s view.</b> Hypersnap and Snapchain currently share validators, so today that is the whole network. After the announced fork it will not be.</p>
+</section>
+
+<footer id="foot">loading…</footer>
+</div>
+
+<script>
+const ARCHIVE = {"days":[{"date":"2026-11-04","partial":false,"active_fids":3086,"by_client":[{"client":"self","active_fids":546,"exclusive_fids":500,"m":{"cast":1092,"delete":228,"like":1733,"link":62,"profile":5,"recast":94,"reply":1494,"verification":0}},{"client":"9152","active_fids":2219,"exclusive_fids":2136,"m":{"cast":2726,"delete":6199,"like":10588,"link":1083,"profile":567,"recast":1394,"reply":3216,"verification":180}},{"client":"1159728","active_fids":220,"exclusive_fids":220,"m":{"cast":220,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"6131","active_fids":71,"exclusive_fids":68,"m":{"cast":527,"delete":0,"like":105,"link":0,"profile":1,"recast":2,"reply":217,"verification":0}},{"client":"16823","active_fids":64,"exclusive_fids":31,"m":{"cast":105,"delete":8,"like":241,"link":7,"profile":0,"recast":19,"reply":133,"verification":2}},{"client":"912253","active_fids":11,"exclusive_fids":2,"m":{"cast":6,"delete":0,"like":31,"link":14,"profile":0,"recast":1,"reply":12,"verification":0}},{"client":"256858","active_fids":19,"exclusive_fids":16,"m":{"cast":0,"delete":0,"like":37,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3356928","active_fids":8,"exclusive_fids":3,"m":{"cast":12,"delete":5896,"like":95,"link":9,"profile":0,"recast":6,"reply":20,"verification":0}},{"client":"1351215","active_fids":8,"exclusive_fids":1,"m":{"cast":4,"delete":1,"like":138,"link":3,"profile":0,"recast":5,"reply":31,"verification":0}},{"client":"553094","active_fids":10,"exclusive_fids":2,"m":{"cast":0,"delete":0,"like":15,"link":0,"profile":0,"recast":10,"reply":0,"verification":0}},{"client":"955569","active_fids":4,"exclusive_fids":4,"m":{"cast":30,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3131082","active_fids":1,"exclusive_fids":0,"m":{"cast":12,"delete":1,"like":7,"link":0,"profile":0,"recast":2,"reply":16,"verification":0}},{"client":"1398997","active_fids":1,"exclusive_fids":1,"m":{"cast":3,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3342181","active_fids":1,"exclusive_fids":1,"m":{"cast":2,"delete":0,"like":1,"link":0,"profile":0,"recast":0,"reply":1,"verification":0}},{"client":"3342616","active_fids":1,"exclusive_fids":1,"m":{"cast":2,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3353694","active_fids":1,"exclusive_fids":1,"m":{"cast":4,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3355363","active_fids":1,"exclusive_fids":1,"m":{"cast":0,"delete":0,"like":1,"link":0,"profile":0,"recast":0,"reply":1,"verification":0}},{"client":"3355543","active_fids":1,"exclusive_fids":0,"m":{"cast":8,"delete":2,"like":17,"link":6,"profile":0,"recast":0,"reply":4,"verification":0}},{"client":"3356329","active_fids":1,"exclusive_fids":0,"m":{"cast":1,"delete":0,"like":13,"link":0,"profile":0,"recast":3,"reply":2,"verification":0}},{"client":"3356396","active_fids":1,"exclusive_fids":0,"m":{"cast":3,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":6,"verification":0}},{"client":"3357084","active_fids":1,"exclusive_fids":1,"m":{"cast":0,"delete":0,"like":0,"link":0,"profile":0,"recast":2,"reply":0,"verification":0}},{"client":"3357424","active_fids":1,"exclusive_fids":0,"m":{"cast":4,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"876470","active_fids":0,"exclusive_fids":0,"m":{"cast":0,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"1075183","active_fids":1,"exclusive_fids":1,"m":{"cast":3,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3335546","active_fids":0,"exclusive_fids":0,"m":{"cast":0,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3354786","active_fids":1,"exclusive_fids":1,"m":{"cast":1,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3355280","active_fids":1,"exclusive_fids":1,"m":{"cast":0,"delete":0,"like":1,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3356653","active_fids":0,"exclusive_fids":0,"m":{"cast":0,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3356682","active_fids":1,"exclusive_fids":0,"m":{"cast":1,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"other","active_fids":0,"exclusive_fids":0,"m":{"cast":0,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"unresolved","active_fids":2,"exclusive_fids":0,"m":{"cast":1,"delete":470,"like":6,"link":0,"profile":0,"recast":1,"reply":0,"verification":0}}]},{"date":"2026-11-05","partial":false,"active_fids":3510,"by_client":[{"client":"self","active_fids":537,"exclusive_fids":490,"m":{"cast":1026,"delete":732,"like":1530,"link":68,"profile":6,"recast":137,"reply":1227,"verification":1}},{"client":"9152","active_fids":2570,"exclusive_fids":2481,"m":{"cast":3180,"delete":1068,"like":7986,"link":1345,"profile":2991,"recast":995,"reply":2368,"verification":1244}},{"client":"1159728","active_fids":320,"exclusive_fids":320,"m":{"cast":320,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"6131","active_fids":61,"exclusive_fids":57,"m":{"cast":401,"delete":0,"like":112,"link":0,"profile":0,"recast":0,"reply":290,"verification":0}},{"client":"16823","active_fids":50,"exclusive_fids":21,"m":{"cast":50,"delete":4,"like":217,"link":5,"profile":0,"recast":25,"reply":55,"verification":0}},{"client":"912253","active_fids":34,"exclusive_fids":2,"m":{"cast":28,"delete":3,"like":37,"link":42,"profile":0,"recast":8,"reply":18,"verification":0}},{"client":"256858","active_fids":19,"exclusive_fids":17,"m":{"cast":0,"delete":0,"like":25,"link":61,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3356928","active_fids":11,"exclusive_fids":5,"m":{"cast":11,"delete":2,"like":79,"link":4,"profile":0,"recast":0,"reply":27,"verification":0}},{"client":"1351215","active_fids":10,"exclusive_fids":0,"m":{"cast":5,"delete":2,"like":181,"link":2,"profile":0,"recast":16,"reply":47,"verification":0}},{"client":"553094","active_fids":0,"exclusive_fids":0,"m":{"cast":0,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"955569","active_fids":2,"exclusive_fids":2,"m":{"cast":6,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3131082","active_fids":3,"exclusive_fids":1,"m":{"cast":3,"delete":1,"like":7,"link":0,"profile":0,"recast":2,"reply":0,"verification":0}},{"client":"1398997","active_fids":1,"exclusive_fids":1,"m":{"cast":4,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3342181","active_fids":1,"exclusive_fids":1,"m":{"cast":4,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3342616","active_fids":1,"exclusive_fids":1,"m":{"cast":1,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3353694","active_fids":1,"exclusive_fids":1,"m":{"cast":2,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3355363","active_fids":1,"exclusive_fids":1,"m":{"cast":0,"delete":0,"like":8,"link":1,"profile":0,"recast":4,"reply":2,"verification":0}},{"client":"3355543","active_fids":1,"exclusive_fids":0,"m":{"cast":1,"delete":0,"like":1,"link":0,"profile":0,"recast":0,"reply":1,"verification":0}},{"client":"3356329","active_fids":1,"exclusive_fids":0,"m":{"cast":2,"delete":1,"like":4,"link":0,"profile":0,"recast":3,"reply":1,"verification":0}},{"client":"3356396","active_fids":1,"exclusive_fids":1,"m":{"cast":5,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3357084","active_fids":1,"exclusive_fids":1,"m":{"cast":0,"delete":0,"like":0,"link":0,"profile":0,"recast":2,"reply":0,"verification":0}},{"client":"3357424","active_fids":1,"exclusive_fids":1,"m":{"cast":4,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"876470","active_fids":1,"exclusive_fids":1,"m":{"cast":1,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"1075183","active_fids":0,"exclusive_fids":0,"m":{"cast":0,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3335546","active_fids":1,"exclusive_fids":1,"m":{"cast":0,"delete":0,"like":1,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3354786","active_fids":0,"exclusive_fids":0,"m":{"cast":0,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3355280","active_fids":0,"exclusive_fids":0,"m":{"cast":0,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3356653","active_fids":1,"exclusive_fids":0,"m":{"cast":0,"delete":0,"like":1,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"3356682","active_fids":0,"exclusive_fids":0,"m":{"cast":0,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"other","active_fids":0,"exclusive_fids":0,"m":{"cast":0,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}},{"client":"unresolved","active_fids":0,"exclusive_fids":0,"m":{"cast":0,"delete":0,"like":0,"link":0,"profile":0,"recast":0,"reply":0,"verification":0}}]}],"tracked_from":"2026-11-04","updated_at":"2026-11-05T20:11:39+00:00"};
+const NAMES={'9152':'Farcaster (official)','self':'self-signed (Quilcast etc)','16823':'Firefly',
+  '6131':'Neynar','1351215':'vibeshift','3356928':'Terminus','309998':'FidCaster',
+  '912253':'npcnexus','other':'other apps','unresolved':'unresolved'};
+const PAL=['var(--c1)','var(--c2)','var(--c3)','var(--c4)','var(--c5)'];
+const nm=c=>NAMES[String(c)]||('app '+c);
+const n=x=>(x==null?'—':x.toLocaleString('en-US'));
+const msgs=c=>Object.values(c.messages_by_action||c.m||{}).reduce((a,b)=>a+b,0);
+
+(function(){
+  const idx = ARCHIVE, ok = ARCHIVE.days.map(d=>({date:d.date, day:{clients:d}}));
+  ok.forEach(o=>o.day.clients.by_client.forEach(x=>x.messages_by_action=x.m));
+  const last = ok[ok.length-1], C = last.day.clients;
+  const bc = C.by_client.slice().sort((a,b)=>b.active_fids-a.active_fids);
+  const totMsg = bc.reduce((s,x)=>s+msgs(x),0);
+  const off = bc.find(x=>String(x.client)==='9152') || {active_fids:0,exclusive_fids:0,messages_by_action:{}};
+  const castTot = bc.reduce((s,x)=>s+(x.messages_by_action.cast||0),0);
+  const castOff = off.messages_by_action.cast||0;
+
+  // colour: the official client is the baseline, deliberately neutral; the
+  // alternatives get the categorical ramp in fixed order of size
+  const alts = bc.filter(x=>String(x.client)!=='9152');
+  const colour = {}; colour['9152']='var(--official)';
+  alts.forEach((x,i)=>{ colour[String(x.client)] = i<PAL.length ? PAL[i] : 'var(--ink-3)'; });
+
+  document.getElementById('kpi').innerHTML = [
+    [`${(100*(castTot-castOff)/castTot).toFixed(1)}%`,'of casts not from the official client'],
+    [n(C.active_fids),'accounts active that day'],
+    [`${(100*(C.active_fids-off.exclusive_fids)/C.active_fids).toFixed(1)}%`,'used something other than the official client'],
+    [n(ok.length),ok.length===1?'day archived':'days archived'],
+  ].map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join('');
+
+  const maxF=Math.max(...bc.map(x=>x.active_fids)), maxM=Math.max(...bc.map(msgs));
+  document.getElementById('rows').innerHTML = bc.filter(x=>x.active_fids>0||msgs(x)>0).slice(0,9).map(x=>{
+    const f=x.active_fids, m=msgs(x), col=colour[String(x.client)]||'var(--ink-3)';
+    return `<div class="r"><span class="nm"><i style="background:${col}"></i>${nm(x.client)}</span>`+
+      `<span class="tk"><span class="fl" style="width:${100*f/maxF}%;background:${col}"></span><span class="lab">${n(f)}</span></span>`+
+      `<span class="tk"><span class="fl" style="width:${100*m/maxM}%;background:${col};opacity:.6"></span><span class="lab">${n(m)}</span></span></div>`;
+  }).join('');
+
+  // exclusive-use bar
+  (function(){
+    const W=860,H=150,P={l:0,r:0,t:30,b:34};
+    const ex=bc.filter(x=>x.exclusive_fids>0).sort((a,b)=>b.exclusive_fids-a.exclusive_fids);
+    const tot=ex.reduce((s,x)=>s+x.exclusive_fids,0); let x0=0,g='';
+    g+=`<text x="0" y="16" font-size="12" fill="var(--ink-3)">${n(tot)} accounts used exactly one client on ${last.date}</text>`;
+    ex.forEach(s=>{
+      const w=W*s.exclusive_fids/tot, col=colour[String(s.client)]||'var(--ink-3)';
+      g+=`<rect x="${x0.toFixed(1)}" y="${P.t}" width="${Math.max(0,w-2).toFixed(1)}" height="46" rx="3" fill="${col}"/>`;
+      if(w>118){
+        g+=`<text x="${(x0+10).toFixed(1)}" y="${P.t+20}" font-size="12" fill="#fff" font-weight="620">${nm(s.client)}</text>`
+         + `<text x="${(x0+10).toFixed(1)}" y="${P.t+37}" font-size="11.5" fill="#fff" opacity=".9">${n(s.exclusive_fids)} · ${(100*s.exclusive_fids/tot).toFixed(1)}%</text>`;
+      }
+      x0+=w;
+    });
+    let ly=P.t+62;
+    ex.filter(s=>W*s.exclusive_fids/tot<=118).slice(0,5).forEach((s,i)=>{
+      const col=colour[String(s.client)]||'var(--ink-3)';
+      g+=`<rect x="${i*172}" y="${ly}" width="9" height="9" rx="2" fill="${col}"/>`
+       + `<text x="${i*172+14}" y="${ly+9}" font-size="11.5" fill="var(--ink-2)">${nm(s.client)} ${n(s.exclusive_fids)}</text>`;
+    });
+    document.getElementById('excl').innerHTML=g;
+  })();
+
+  // series
+  (function(){
+    const pts = ok.map(d=>{
+      const b=d.day.clients.by_client, t=b.reduce((s,x)=>s+(x.messages_by_action.cast||0),0);
+      const o=(b.find(x=>String(x.client)==='9152')||{messages_by_action:{}}).messages_by_action.cast||0;
+      return {d:d.date, v: t? 100*(t-o)/t : 0, n:t};
+    });
+    const W=860,H=190,P={l:42,r:58,t:16,b:30};
+    const mx=Math.max(60,Math.ceil(Math.max(...pts.map(p=>p.v))/10)*10+10);
+    const X=i=>pts.length===1 ? (P.l+(W-P.l-P.r)/2) : P.l+i/(pts.length-1)*(W-P.l-P.r);
+    const Y=v=>H-P.b-v/mx*(H-P.t-P.b);
+    let g='';
+    for(let i=0;i<=4;i++){const v=mx*i/4;
+      g+=`<line x1="${P.l}" x2="${W-P.r}" y1="${Y(v).toFixed(1)}" y2="${Y(v).toFixed(1)}" stroke="var(--grid)"/>`
+       + `<text x="${P.l-8}" y="${(Y(v)+4).toFixed(1)}" text-anchor="end" font-size="11" fill="var(--ink-3)">${v.toFixed(0)}%</text>`;}
+    if(pts.length>1){
+      g+=`<polyline points="${pts.map((p,i)=>`${X(i).toFixed(1)},${Y(p.v).toFixed(1)}`).join(' ')}" fill="none" stroke="var(--c1)" stroke-width="2" stroke-linejoin="round"/>`;
+    }
+    pts.forEach((p,i)=>{
+      g+=`<circle cx="${X(i).toFixed(1)}" cy="${Y(p.v).toFixed(1)}" r="4.5" fill="var(--c1)" stroke="var(--panel)" stroke-width="2"/>`
+       + `<text x="${X(i).toFixed(1)}" y="${H-10}" text-anchor="middle" font-size="11" fill="var(--ink-3)">${p.d.slice(5)}</text>`;
+      if(i===pts.length-1)
+        g+=`<text x="${(X(i)+11).toFixed(1)}" y="${(Y(p.v)+4).toFixed(1)}" font-size="12.5" fill="var(--c1)" font-weight="650">${p.v.toFixed(1)}%</text>`;
+    });
+    document.getElementById('series').innerHTML=g;
+    document.getElementById('seriesnote').textContent =
+      pts.length<4 ? `One point per day since tracking began on ${idx.tracked_from}. With ${pts.length} day${pts.length>1?'s':''} this is a reading, not yet a trend.`
+                   : `One point per day since tracking began on ${idx.tracked_from}.`;
+  })();
+
+  document.querySelector('#tbl tbody').innerHTML = bc.filter(x=>msgs(x)>0||x.active_fids>0)
+    .map(x=>{const a=x.messages_by_action||{};
+      return `<tr><td>${nm(x.client)}</td><td>${n(x.active_fids)}</td><td>${n(x.exclusive_fids)}</td>`+
+             `<td>${n(a.cast||0)}</td><td>${n(a.reply||0)}</td><td>${n(a.like||0)}</td><td>${n(msgs(x))}</td></tr>`;}).join('');
+
+  document.getElementById('foot').innerHTML =
+    `Source: <code>haatz.quilibrium.com/v2/farcaster/stats/daily</code>, archived at `+
+    `<a href="https://github.com/webthethird/fc-client-mix">webthethird/fc-client-mix</a>, `+
+    `which updates every six hours. <b>This page is a snapshot of that archive</b> taken `+
+    `${(idx.updated_at||'').replace('T',' ').slice(0,16)} UTC — it does not refresh itself, because a `+
+    `published artifact cannot reach an external host. Most recent day ${last.date}`+
+    `${C.partial?' (still filling)':''}. The client dimension begins ${idx.tracked_from} and does not backfill.`;
+})();
+</script>
