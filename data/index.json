@@ -137,8 +137,14 @@
    "active_fids": 236,
    "partial": false,
    "clients": 31
+  },
+  {
+   "date": "2026-11-27",
+   "active_fids": 245,
+   "partial": false,
+   "clients": 31
   }
  ],
  "tracked_from": "2026-11-04",
- "updated_at": "2026-11-26T18:22:11+00:00"
+ "updated_at": "2026-11-27T00:38:54+00:00"
 }
